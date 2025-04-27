@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+
+<AuthorizeView>
+    <Authorized>
+        @foreach (var claim in context.User.Claims)
+        {
+            <p>@claim.Type : @claim.Value</p>
+        }
+
+        <div>
+            <h2>User Identities</h2>
+            @string.Concat(context.User.Identities.Select(id => id.Name))
+        </div>
+    </Authorized>
+</AuthorizeView>

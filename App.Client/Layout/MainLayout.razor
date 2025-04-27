@@ -1,0 +1,21 @@
+﻿@inherits LayoutComponentBase
+
+<div>
+    <AuthorizeView>
+
+        <Authorized>
+            <strong>Hello, @context.User.Identity.Name!</strong>
+            <a class="btn btn-danger" href="@context.User.FindFirst("bff:logout_url")?.Value">Log out</a>
+        </Authorized>
+        <NotAuthorized>
+            <a href="https://localhost:5002/bff/login" class="btn btn-primary">Log in</a>
+        </NotAuthorized>
+        <Authorizing>
+            Determining The session state....
+        </Authorizing>
+    </AuthorizeView>
+</div>
+<div>
+    @Body
+</div>
+
