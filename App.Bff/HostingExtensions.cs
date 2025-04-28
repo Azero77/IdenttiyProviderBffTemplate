@@ -75,8 +75,6 @@ namespace App.Bff
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
             app.UseRouting();
             app.UseCors("SPAClient");
             app.UseAuthentication();
@@ -96,6 +94,10 @@ namespace App.Bff
             app.MapRemoteBffApiEndpoint("/api", "https://localhost:5004/api/")
             .RequireAccessToken(Duende.Bff.TokenType.User);
 
+            app.MapGet("/",  (context) => {
+                context.Response.Redirect("https://localhost:5003");
+                return Task.CompletedTask;
+            }) ;
             return app;
         }
     }
