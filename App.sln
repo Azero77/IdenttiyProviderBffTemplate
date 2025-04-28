@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Shared", "App.Shared\App.Shared.csproj", "{90E27286-127F-4F25-97DD-8BB632E8A73E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Shared", "App.Shared\App.Shared.csproj", "{90E27286-127F-4F25-97DD-8BB632E8A73E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Identity", "App.Identity\App.Identity.csproj", "{19593E21-A7A5-41A1-ACE0-1C38750F651C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Identity", "App.Identity\App.Identity.csproj", "{19593E21-A7A5-41A1-ACE0-1C38750F651C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Bff", "App.Bff\App.Bff.csproj", "{ED681E9E-9EC2-460C-8E9E-2DDB01750E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Bff", "App.Bff\App.Bff.csproj", "{ED681E9E-9EC2-460C-8E9E-2DDB01750E95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Client", "App.Client\App.Client.csproj", "{8EC1CDC8-DCB8-4726-B0C3-CE12F6AF713A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Client", "App.Client\App.Client.csproj", "{8EC1CDC8-DCB8-4726-B0C3-CE12F6AF713A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App.Api", "App.Api\App.Api.csproj", "{E8A284CA-B566-4269-8884-B160CC21B150}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App.Api", "App.Api\App.Api.csproj", "{E8A284CA-B566-4269-8884-B160CC21B150}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

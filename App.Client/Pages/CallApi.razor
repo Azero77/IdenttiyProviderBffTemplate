@@ -1,0 +1,31 @@
+﻿@page "/callApi"
+@using global::App.Shared
+
+<h3>callApi</h3>
+<div>
+    @if (items is not null)
+    {
+        @foreach (var item in items)
+        {
+            <p>@item.Name - @item.TestValue</p>
+        }
+    }
+    else
+    {
+        <p>Loading....</p>
+    }
+</div>
+@code {
+    [Inject]
+    public IHttpClientFactory _clientFactory { get; set; } = null!;
+
+    private HttpClient _client { get; set; } = null!;
+
+    private IEnumerable<TestClass> items = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _client = _clientFactory.CreateClient("apiClient");
+        items = await _client.GetFromJsonAsync<IEnumerable<TestClass>>("/api/Test/Tests") ?? throw new ArgumentNullException();
+    }
+}

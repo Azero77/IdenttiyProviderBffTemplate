@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace App.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [Authorize]
     public class TestController : ControllerBase
     {
@@ -17,7 +17,7 @@ namespace App.Api.Controllers
             _logger = logger;
         }
 
-        [HttpGet(Name = "Tests")]
+        [HttpGet("Tests")]
         public IEnumerable<TestClass> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new TestClass

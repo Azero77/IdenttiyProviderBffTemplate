@@ -4,6 +4,7 @@
     <AuthorizeView>
 
         <Authorized>
+            <a href="/callApi" class="btn btn-primary">Call Remote API</a>
             <strong>Hello, @context.User.Identity.Name!</strong>
             <a class="btn btn-danger" href="@context.User.FindFirst("bff:logout_url")?.Value">Log out</a>
         </Authorized>

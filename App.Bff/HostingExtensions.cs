@@ -35,7 +35,7 @@ namespace App.Bff
                 .AddCookie("cookie", options =>
                 {
                     options.Cookie.Name = "__Host-bff";
-                    options.Cookie.SameSite = SameSiteMode.None;
+                    options.Cookie.SameSite = SameSiteMode.Lax;
                     options.SlidingExpiration = true;
                     options.Cookie.HttpOnly = true;
                     options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
@@ -93,7 +93,7 @@ namespace App.Bff
             app.MapBffManagementEndpoints();
 
             // if you wanted to enable a remote API (in addition or instead of the local API), then you could uncomment these lines
-            app.MapRemoteBffApiEndpoint("/api", "https://localhost:5004")
+            app.MapRemoteBffApiEndpoint("/api", "https://localhost:5004/api/")
             .RequireAccessToken(Duende.Bff.TokenType.User);
 
             return app;
