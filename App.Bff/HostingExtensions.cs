@@ -1,3 +1,4 @@
+using App.Shared;
 using Duende.Bff.Yarp;
 using Serilog;
 
@@ -20,7 +21,7 @@ namespace App.Bff
             {
                 setup.AddPolicy("SPAClient", p =>
                 {
-                    p.WithOrigins("https://localhost:5003")
+                    p.WithOrigins(GlobalConfiguration.ClientUri)
                     .AllowAnyHeader()
                     .AllowCredentials()
                     .AllowAnyHeader();
@@ -43,7 +44,7 @@ namespace App.Bff
                 })
                 .AddOpenIdConnect("oidc", options =>
                 {
-                    options.Authority = "https://localhost:5001";
+                    options.Authority = GlobalConfiguration.IdentityUri;
                     options.ClientId = "interactive.confidential";
                     options.ClientSecret = "secret";
                     options.ResponseType = "code";
@@ -91,11 +92,11 @@ namespace App.Bff
             app.MapBffManagementEndpoints();
 
             // if you wanted to enable a remote API (in addition or instead of the local API), then you could uncomment these lines
-            app.MapRemoteBffApiEndpoint("/api", "https://localhost:5004/api/")
+            app.MapRemoteBffApiEndpoint("/api", $"{GlobalConfiguration.ApiUri}/api/")
             .RequireAccessToken(Duende.Bff.TokenType.User);
 
             app.MapGet("/",  (context) => {
-                context.Response.Redirect("https://localhost:5003");
+                context.Response.Redirect(GlobalConfiguration.ClientUri);
                 return Task.CompletedTask;
             }) ;
             return app;

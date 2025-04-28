@@ -1,4 +1,5 @@
 
+using App.Shared;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.IdentityModel.Tokens.Jwt;
 
@@ -20,7 +21,7 @@ namespace App.Api
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme,
                 opts => 
                 {
-                    opts.Authority = "https://localhost:5001";
+                    opts.Authority = GlobalConfiguration.IdentityUri;
                     opts.TokenValidationParameters = new() { ValidateAudience = false};
                 });
 

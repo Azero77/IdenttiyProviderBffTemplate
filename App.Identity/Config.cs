@@ -1,3 +1,4 @@
+using App.Shared;
 using Duende.IdentityServer.Models;
 
 namespace App.Identity
@@ -40,9 +41,9 @@ namespace App.Identity
 
                     AllowedGrantTypes = GrantTypes.Code,
 
-                    RedirectUris = { "https://localhost:5002/signin-oidc" },
-                    FrontChannelLogoutUri = "https://localhost:5002/signout-oidc",
-                    PostLogoutRedirectUris = { "https://localhost:5002/signout-callback-oidc" },
+                    RedirectUris = { $"{GlobalConfiguration.BFFUri}/signin-oidc" },
+                    FrontChannelLogoutUri = $"{GlobalConfiguration.BFFUri}/signout-oidc",
+                    PostLogoutRedirectUris = { $"{GlobalConfiguration.BFFUri}/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
                     AllowedScopes = { "openid", "profile", "webApi" }

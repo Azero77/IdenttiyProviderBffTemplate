@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using App.Client.Services;
+using App.Shared;
 
 namespace App.Client
 {
@@ -18,7 +19,7 @@ namespace App.Client
             //builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddHttpClient("apiClient", client =>
             {
-                client.BaseAddress = new Uri("https://localhost:5002/");
+                client.BaseAddress = new Uri(GlobalConfiguration.BFFUri);
             }).AddHttpMessageHandler<AntiforgeryHandler>()
             .AddHttpMessageHandler<CookieHandler>();
             builder.Services.AddSingleton<CookieHandler>();
