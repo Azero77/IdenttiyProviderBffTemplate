@@ -1,6 +1,6 @@
-#README
+# README
 
-##Project Template For Authorization and Authentication using BFF Pattern
+## Project Template For Authorization and Authentication using BFF Pattern
 
 ### This solution contains 5 projects:
 1-**App.Identtiy** -> for authorizing and authenticating the user and get the access token and identity token
