@@ -1,0 +1,27 @@
+﻿@page "/accesstoken"
+
+<h3>AccessTokenCall</h3>
+@if(result is not null)
+{
+    <p>@result</p>
+}
+else
+{
+    <p>
+        Loading...
+    </p>
+}
+@code {
+    [Inject]
+    public IHttpClientFactory factory { get; set; } = null!;
+
+    public HttpClient _client { get; set; } = null!;
+    private string? result = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        _client = factory.CreateClient("apiClient");
+        result  = await _client.GetStringAsync("/api/Test/AccessToken");
+    }
+}

@@ -1,4 +1,6 @@
 using App.Shared;
+using Duende.AccessTokenManagement.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,6 +28,13 @@ namespace App.Api.Controllers
                 TestValue = true
             })
             .ToArray();
+        }
+
+        [HttpGet("AccessToken")]
+        public async Task<UserToken> GetAccessToken()
+        {
+            UserToken token = await HttpContext.GetUserAccessTokenAsync();
+            return token;
         }
     }
 }

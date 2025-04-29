@@ -1,6 +1,8 @@
-using App.Shared;
 using Duende.Bff.Yarp;
 using Serilog;
+using App.Shared;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace App.Bff
 {
@@ -99,6 +101,11 @@ namespace App.Bff
                 context.Response.Redirect(GlobalConfiguration.ClientUri);
                 return Task.CompletedTask;
             }) ;
+
+            app.MapGet("/accessToken", async (HttpContext context) => {
+                var token = await context.GetUserAccessTokenAsync();
+                return token;
+            });
             return app;
         }
     }
